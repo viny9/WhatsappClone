@@ -1,0 +1,87 @@
+p {
+    margin: 0;
+}
+
+.sidebar {
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid #e5e5e6;
+}
+
+.head {
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 8%;
+}
+
+.profile {
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.icons {
+    margin-right: 20px;
+}
+
+.icons > img {
+    padding: 0 10px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+    height: 7%;
+    border-bottom: 1px solid #e5e5e6;
+}
+
+.search {
+    width: 90%;
+    height: 40px;
+    background-color: white ;
+    border-radius: 18px; 
+    display: flex;
+    align-items: center ;
+    justify-content: space-around;
+}
+
+.search input {
+    width: 80%;  
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.contacts {
+    width: 100%;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 70px;
+}
+
+.contact img {
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 10px 0 20px;
+}
+
+.infos > p {
+    width: 250px;
+}
+
+.infos2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
