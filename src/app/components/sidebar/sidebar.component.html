@@ -4,7 +4,9 @@
         <div class="icons">
             <img src="../../../assets/status2.svg" alt="icons">
             <img src="../../../assets/chats.svg" alt="icons">
-            <mat-icon>more_vertical</mat-icon>
+            <button [mat-menu-trigger-for]="userMenu">
+                <mat-icon>more_vertical</mat-icon>
+            </button>
         </div>
     </div>
     <div class="searchBar">
@@ -14,16 +16,37 @@
             </form>
     </div>
     <div class="contacts">
-        <div class="contact">
+        <div class="contact" *ngFor="let info of chats">
             <img src="../../../assets/profileimage.png" alt="">
             <div class="infos">
-                <p>Name</p>
+                <p>{{info.name}}</p>
                 <p>Message</p>
             </div>
             <div class="infos2">
                 <p>10:00</p>
-                <mat-icon>arrow_drop_down</mat-icon>
+                <button [mat-menu-trigger-for]="chatMenu">
+                    <mat-icon>arrow_drop_down</mat-icon>
+                </button>
             </div>
         </div>
     </div>
+</div>
+
+<div>
+    <mat-menu #userMenu="matMenu">
+        <button mat-menu-item>Novo grupo</button>
+        <button mat-menu-item>Messagens favoritas</button>
+        <button mat-menu-item>Configurações</button>
+        <button mat-menu-item>Desconectar</button>
+    </mat-menu>
+</div>
+
+<div>
+    <mat-menu #chatMenu="matMenu">
+        <button mat-menu-item>Arquivar conversa</button>
+        <button mat-menu-item>Silenciar notificações</button>
+        <button mat-menu-item>Apagar conversa</button>
+        <button mat-menu-item>Fixar conversa</button>
+        <button mat-menu-item>Marcar como não lida</button>
+    </mat-menu>
 </div>
