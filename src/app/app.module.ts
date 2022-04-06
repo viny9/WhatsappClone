@@ -27,7 +27,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
     MatIconModule,
     MatMenuModule,
 
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireStorageModule
