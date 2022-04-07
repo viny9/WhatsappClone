@@ -1,1 +1,5 @@
-<app-sidebar></app-sidebar>
+<div class="html">
+  <app-sidebar (user)="recive($event)" ></app-sidebar>
+  <app-home *ngIf="!user"></app-home>
+  <app-chat [infos]="user" *ngIf="user"></app-chat>
+</div>

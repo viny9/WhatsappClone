@@ -1,0 +1,13 @@
+.html {
+  display: flex;
+  height: 100%;
+}
+
+app-chat {
+  width: 75%;
+  margin-left: 1px;
+}
+
+app-home {
+  width: 70.5%;
+}
