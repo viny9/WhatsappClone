@@ -1,24 +1,32 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { HomeComponent } from './components/home/home.component'
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat'
+
+import { FormsModule } from '@angular/forms'
 
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatCardModule } from '@angular/material/card'
 
+import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
-import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
+    ChatComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +34,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
     BrowserAnimationsModule,
     MatIconModule,
     MatMenuModule,
+    MatToolbarModule,
+    MatCardModule,
+    FormsModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
