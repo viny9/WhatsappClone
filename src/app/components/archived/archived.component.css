@@ -1,0 +1,82 @@
+h1,p {
+    margin: 0;
+}
+
+.archived {
+    height: 100%;
+    width: 100%;
+}
+
+.head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    background-color: #00bfa5;
+    height: 17%;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.head button {
+    color: white;
+}
+
+.head > button {
+    margin: 0 15px;
+}
+
+span {
+    display: flex;
+}
+
+.return {
+    margin: 0 15px 0 20px;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f2f2f2;
+    height: 70px;
+}
+
+.contact:hover {
+    background-color: #d0cfcf62;
+}
+
+.contact img {
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 10px 0 20px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.infos > p{
+    width: 250px;
+}
+
+.noContact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    color: #8c8c8c;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 23px;
+    background-color: #e6e6e6;
+    color: white;
+}

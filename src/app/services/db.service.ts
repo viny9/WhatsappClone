@@ -19,8 +19,11 @@ messages() {
 }
 
 sendMessages(mesaage:any) {
-    console.log(this.fire.database.ref().child('chats').push().key)
    return this.db.collection('/chats/MpJznJTm5hoP6aHMePYB/messages').add(mesaage)
+ }
+
+ archiveAndUnarchive(user:any) {
+  return this.db.collection('/chats').doc('MpJznJTm5hoP6aHMePYB').update(user)
  }
 
 }

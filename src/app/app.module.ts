@@ -15,18 +15,21 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatCardModule } from '@angular/material/card'
+import { MatSidenavModule } from '@angular/material/sidenav'
 
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ArchivedComponent } from './components/archived/archived.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     ChatComponent,
-    HomeComponent
+    HomeComponent,
+    ArchivedComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     MatToolbarModule,
     MatCardModule,
     FormsModule,
+    MatSidenavModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
