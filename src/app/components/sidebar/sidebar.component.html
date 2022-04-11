@@ -1,52 +1,70 @@
-<div class="sidebar">
-    <div class="head">
-       <img class="profile" src="../../../assets/profileimage.png" alt="profile">
+<mat-drawer-container [hasBackdrop]="false">
+
+  <mat-drawer position="start"opened="{{sidebar}}" #open mode="over" class="component">  <!-- Archived Component -->
+    <app-archived (sidebar)="recive($event)"></app-archived>
+  </mat-drawer>
+
+  <mat-drawer position="end" opened="{{profile}}" #open mode="over" class="component">  <!-- Archived Profile -->
+    <app-profile (profile)="recive($event)"></app-profile>
+  </mat-drawer>
+
+  <mat-drawer-content class="sidebar">
+
+      <div class="head">
+        <img (click)="profile = true" class="profile" src="../../../assets/profileimage.png" alt="profile">
         <div class="icons">
-            <img src="../../../assets/status2.svg" alt="icons">
-            <img src="../../../assets/chats.svg" alt="icons">
-            <button [mat-menu-trigger-for]="userMenu">
-                <mat-icon>more_vert</mat-icon>
-            </button>
+          <img src="../../../assets/status2.svg" alt="icons">
+          <img src="../../../assets/chats.svg" alt="icons">
+          <button [mat-menu-trigger-for]="userMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
         </div>
-    </div>
-    <div class="searchBar">
-            <form class="search"> 
-                <mat-icon>search</mat-icon>
-                <input type="text" placeholder="Pesquisa ou começar uma nova conversa">
-            </form>
-    </div>
-    <div class="contacts">
+      </div>
+      <div class="searchBar">
+        <form class="search">
+          <mat-icon>search</mat-icon>
+          <input type="text" placeholder="Pesquisa ou começar uma nova conversa">
+        </form>
+      </div>
+      <div *ngIf="archived" (click)="sidebar = true" class="archived">
+        <a>
+          <img src="../../../assets/archived.svg" alt="">
+          <p>Arquivadas</p>
+        </a>
+      </div>
+      <div class="contacts">
         <div class="contact" *ngFor="let info of chats" (click)="getInfos(info)">
-            <img src="../../../assets/profileimage.png" alt="">
-            <div class="infos">
-                <p>{{info.name}}</p>
-                <p>Message</p>
-            </div>
-            <div class="infos2">
-                <p>10:00</p>
-                <button [mat-menu-trigger-for]="chatMenu">
-                    <mat-icon>arrow_drop_down</mat-icon>
-                </button>
-            </div>
+          <img src="../../../assets/profileimage.png" alt="">
+          <div class="infos">
+            <p>{{info.name}}</p>
+            <p>Message</p>
+          </div>
+          <div class="infos2">
+            <p>10:00</p>
+            <button [mat-menu-trigger-for]="chatMenu">
+              <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+          </div>
         </div>
-    </div>
+      </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<div>
+  <mat-menu #userMenu="matMenu">
+    <button mat-menu-item>Novo grupo</button>
+    <button mat-menu-item>Messagens favoritas</button>
+    <button mat-menu-item>Configurações</button>
+    <button mat-menu-item>Desconectar</button>
+  </mat-menu>
 </div>
 
 <div>
-    <mat-menu #userMenu="matMenu">
-        <button mat-menu-item>Novo grupo</button>
-        <button mat-menu-item>Messagens favoritas</button>
-        <button mat-menu-item>Configurações</button>
-        <button mat-menu-item>Desconectar</button>
-    </mat-menu>
-</div>
-
-<div>
-    <mat-menu #chatMenu="matMenu">
-        <button mat-menu-item>Arquivar conversa</button>
-        <button mat-menu-item>Silenciar notificações</button>
-        <button mat-menu-item>Apagar conversa</button>
-        <button mat-menu-item>Fixar conversa</button>
-        <button mat-menu-item>Marcar como não lida</button>
-    </mat-menu>
+  <mat-menu #chatMenu="matMenu">
+    <button mat-menu-item (click)="archive()">Arquivar conversa</button>
+    <button mat-menu-item>Silenciar notificações</button>
+    <button mat-menu-item>Apagar conversa</button>
+    <button mat-menu-item>Fixar conversa</button>
+    <button mat-menu-item>Marcar como não lida</button>
+  </mat-menu>
 </div>

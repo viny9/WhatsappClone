@@ -1,0 +1,79 @@
+h1,p {
+    margin: 0;
+}
+
+.profile {
+    height: 100%;
+    width: 100%;
+}
+
+.head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    background-color: #00bfa5;
+    height: 17%;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.head button {
+    color: white;
+}
+
+.head > button {
+    margin: 0 15px;
+}
+
+span {
+    display: flex;
+}
+
+.return {
+    margin: 0 15px 0 20px;
+}
+
+.body  {
+    height: 81.5%;
+    background-color: #ededed;
+}
+
+
+.profileImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;
+}
+
+.profileImg img {
+    border-radius: 50%;
+    width: 181px;
+}
+
+.input {
+    padding: 15px 0 6px 26px;
+    width: 93%;
+    height: 6rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input p{
+    color: #009688;
+}
+
+.input mat-form-field {
+    width: 85%;
+}
+
+.message {
+    color: #828282;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7rem;
+    
+}

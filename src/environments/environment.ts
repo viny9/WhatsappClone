@@ -1,4 +1,4 @@
-import { firebaseConfig } from '../../env'; //Arquivo criado "env.ts" que contem as informações do firebase.
+import { firebaseConfig } from './env'; //Arquivo criado "env.ts" que contem as informações do firebase.
 
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
