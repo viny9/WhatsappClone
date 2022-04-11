@@ -1,0 +1,31 @@
+<div class="profile">
+    <div class="head">
+      <span>
+        <button (click)="close()" class="return">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        <h1>Perfil</h1>
+      </span>
+    </div>
+    <div class="body">
+        <div class="profileImg">
+            <img src="{{img}}" alt="">
+        </div>
+        <div class="input">
+            <p>Seu nome</p>
+            <mat-form-field>
+                <input type="text" matInput [(ngModel)]="name" (keyup.enter)="updateInfos()" [disabled]="showN">
+                <mat-icon matSuffix #show (click)="showN = !showN" (click)="updateInfos()">edit</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="message">
+            <p>Esse não é seu nome de usuário e nem seu PIN. Esse <br> nome será visivel para seus contatos do Whatsapp.</p>
+        </div>
+        <div class="input">
+            <p>Recado</p>
+            <mat-form-field>
+                <input type="text" matInput [(ngModel)]="bio" (keyup.enter)="updateInfos()" [disabled]="showB">
+                <mat-icon matSuffix (click)="showB= !showB" (click)="updateInfos()">edit</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>

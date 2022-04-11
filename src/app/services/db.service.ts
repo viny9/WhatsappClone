@@ -13,6 +13,14 @@ constructor(private db:AngularFirestore, private fire:AngularFireDatabase) { }
   return this.db.collection('chats').get()
 }
 
+getProfile() {
+  return this.db.collection('profile').get()
+}
+
+updateProfile(profileInfos:any) {
+  return this.db.collection('profile').doc('ByUiN2KRqGV2KOpDDtnz').update(profileInfos)
+}
+
 messages() {
   return this.db.collection('/chats/MpJznJTm5hoP6aHMePYB/messages').get()
   

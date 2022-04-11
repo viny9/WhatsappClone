@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
   chats:any [] = []
   archived:any = false
   sidebar:any = false
+  profile:any = true
   
   constructor(private fire:DbService) {
    }
@@ -47,6 +48,7 @@ export class SidebarComponent implements OnInit {
 
   recive(infos:any) {
     this.sidebar = infos
+    this.profile = infos
   }
   
   archive() {

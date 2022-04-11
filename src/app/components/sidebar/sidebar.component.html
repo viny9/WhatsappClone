@@ -1,13 +1,17 @@
 <mat-drawer-container [hasBackdrop]="false">
 
-  <mat-drawer opened="{{sidebar}}" #open mode="over" class="archivedComponent">  <!-- Archived Component -->
+  <mat-drawer position="start"opened="{{sidebar}}" #open mode="over" class="component">  <!-- Archived Component -->
     <app-archived (sidebar)="recive($event)"></app-archived>
+  </mat-drawer>
+
+  <mat-drawer position="end" opened="{{profile}}" #open mode="over" class="component">  <!-- Archived Profile -->
+    <app-profile (profile)="recive($event)"></app-profile>
   </mat-drawer>
 
   <mat-drawer-content class="sidebar">
 
       <div class="head">
-        <img class="profile" src="../../../assets/profileimage.png" alt="profile">
+        <img (click)="profile = true" class="profile" src="../../../assets/profileimage.png" alt="profile">
         <div class="icons">
           <img src="../../../assets/status2.svg" alt="icons">
           <img src="../../../assets/chats.svg" alt="icons">
