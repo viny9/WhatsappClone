@@ -6,6 +6,7 @@
     justify-content: center;
     text-align: center;
     background-color: #f8f9fa;
+    font-family: Segoe UI,Helvetica Neue,Helvetica,Lucida Grande,Arial,Ubuntu,Cantarell,Fira Sans,sans-serif;
   }
   
   .home>img {
@@ -14,19 +15,20 @@
   
   .home>h1 {
     margin: 28px 0;
-    font-weight: lighter;
-    font-size: xx-large;
+    font-weight: 300;
+    font-size: 32px;
+    color: #41525d;
+    display: flex;
   }
   
   .home>p {
-    width: 500px;
+    width: 600px;
     border-bottom: 1px solid #dadbdc;
     padding-bottom: 35px;
   }
   
   .text {
-    color: #888989;
-    font-weight: lighter;
+    color: #667781;
   }
   
   span {
@@ -35,5 +37,5 @@
   
   span a {
     text-decoration: none;
-    color: #0aa545;
+    color: #008069;
   }

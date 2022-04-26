@@ -4,9 +4,12 @@
 }
 
 app-chat {
-  width: 75%;
+  width: 65%;
 }
 
 app-home {
-  width: 70.5%;
+  width: 65.5%;
+}
+app-sidebar {
+  width: 35%;
 }

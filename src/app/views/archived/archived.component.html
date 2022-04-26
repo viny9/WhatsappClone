@@ -6,13 +6,10 @@
       </button>
       <h1>Arquivadas</h1>
     </span>
-    <button>
-      <mat-icon>more_vert</mat-icon>
-    </button>
   </div>
   <div class="body">
     <div class="contactsArchived" *ngIf="archived == true">
-      <div class="contact" *ngFor="let contact of chats">
+      <div class="contact" *ngFor="let contact of chats" (click)="findId(contact.name)" (click)="getChat(contact)">
         <img src="../../../assets/profileimage.png" alt="">
         <div class="infos">
           <p>{{contact.name}}</p>
@@ -38,7 +35,7 @@
 <div class="menu">
   <mat-menu #archivedMenu="matMenu">
     <button mat-menu-item (click)="unarchive()">Desaquivar conversa</button>
-    <button mat-menu-item>Apagar conversa</button>
+    <button mat-menu-item (click)="delete()">Apagar conversa</button>
     <button mat-menu-item>Marcar como não lida</button>
   </mat-menu>
 </div>

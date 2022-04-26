@@ -2,27 +2,61 @@
   <mat-toolbar class="head">
     <div class="profile">
       <img src="../../../assets/profileimage.png" alt="">
-      <p>{{infos?.name}}</p>
+      <p>{{infos?.user?.name}}</p>
     </div>
     <div class="icons">
       <button>
         <mat-icon>search</mat-icon>
       </button>
-      <button>
+      <button [mat-menu-trigger-for]="contactMenu">
         <mat-icon>more_vert</mat-icon>
       </button>
     </div>
   </mat-toolbar>
   <div class="body">
-    <mat-card class="messages" *ngFor="let message of messages"
-    [ngClass]="{'userMessage': message.user == true, 'profileMessage': message.user == false}">
-      {{message.messages}}
-    </mat-card>
+    <div class="messages">
+
+      <mat-card class="message" *ngFor="let message of messages"[ngClass]="{'userMessage': message.user == true, 'profileMessage': message.user == false}">
+        <img class="tailUser" *ngIf="message.user" src="../../../assets/messageUserTail.svg" alt="">
+        <img class="tailProfiles" *ngIf="!message.user" src="../../../assets/messageProfilesTail.svg" alt="">
+        <button [mat-menu-trigger-for]="messageMenu" class="messagesOptions" (click)="findId(message.message)">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+        {{message.message}}
+
+        <div class="messageInfos">
+          <p class="time">{{transformTime(message.time.seconds)}}</p>
+          <mat-icon *ngIf="message.user" [ngClass]="{'check': message.checked == true}">done_all</mat-icon>
+        </div>
+      </mat-card>
+
+    </div>
   </div>
   <div class="foot">
     <img src="../../../assets/emojis.svg" alt="">
     <img src="../../../assets/clip.svg" alt="">
-    <input class="input" type="text" placeholder="Digite uma messagem" [(ngModel)]="input" (keyup.enter)="sendMessage()">
+    <input class="input" type="text" placeholder="Digite uma messagem" [(ngModel)]="input"
+      (keyup.enter)="sendMessage()">
     <img src="../../../assets/mic.svg" alt="">
   </div>
+</div>
+
+<div class="menus">
+  <mat-menu #messageMenu="matMenu">
+    <button mat-menu-item>Responder</button>
+    <button mat-menu-item>Encaminhar mensagem</button>
+    <button mat-menu-item>Favoritar mensagem</button>
+    <button mat-menu-item (click)="removeMessage()">Apagar mensagem</button>
+  </mat-menu>
+
+  <mat-menu #contactMenu="matMenu">
+    <button mat-menu-item>Dados do contato</button>
+    <button mat-menu-item>Selecionat mensagens</button>
+    <button mat-menu-item>Fechar conversa</button>
+    <button mat-menu-item>Silenciar notificações</button>
+    <button mat-menu-item>Mensagens temporárias</button>
+    <button mat-menu-item>Limpar mensagens</button>
+    <button mat-menu-item>Apagar conversa</button>
+  </mat-menu>
 </div>

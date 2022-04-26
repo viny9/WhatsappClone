@@ -11,8 +11,8 @@ h1,p {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    background-color: #00bfa5;
-    height: 17%;
+    background-color: #008069;
+    height: 11%;
     color: white;
     padding-bottom: 10px;
 }
@@ -29,8 +29,37 @@ span {
     display: flex;
 }
 
+h1 {
+    font-size: 19px;
+}
+
 .return {
     margin: 0 15px 0 20px;
+}
+
+.body {
+    overflow-y: scroll;
+    height: 81.9%;
+}
+
+.body::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.body::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #cccccc;
+}
+
+.contactsArchived::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.contactsArchived::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: #cccccc;
 }
 
 .contact {
@@ -39,6 +68,7 @@ span {
     border-bottom: 1px solid #f2f2f2;
     height: 70px;
 }
+
 
 .contact:hover {
     background-color: #d0cfcf62;
@@ -57,7 +87,7 @@ span {
 }
 
 .infos > p{
-    width: 250px;
+    width: 320px;
 }
 
 .noContact {
