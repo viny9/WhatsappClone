@@ -1,15 +1,16 @@
 <mat-drawer-container [hasBackdrop]="false">
 
+  <!-- Sidenavs Components -->
   <mat-drawer position="start"opened="{{sidebar}}" #open mode="over" class="component">  <!-- Archived Component -->
-    <app-archived (sidebar)="recive($event)"></app-archived>
+    <app-archived (chat)="send($event)" (sidebar)="close($event)"></app-archived>
   </mat-drawer>
 
-  <mat-drawer position="end" opened="{{profile}}" #open mode="over" class="component">  <!-- Archived Profile -->
-    <app-profile (profile)="recive($event)"></app-profile>
+  <mat-drawer position="end" opened="{{profile}}" #open mode="over" class="component">  <!-- Profile Component -->
+    <app-profile (profile)="close($event)"></app-profile>
   </mat-drawer>
 
+  <!-- Sidebar Component -->
   <mat-drawer-content class="sidebar">
-
       <div class="head">
         <img (click)="profile = true" class="profile" src="../../../assets/profileimage.png" alt="profile">
         <div class="icons">
@@ -23,7 +24,7 @@
       <div class="searchBar">
         <form class="search">
           <mat-icon>search</mat-icon>
-          <input type="text" placeholder="Pesquisa ou começar uma nova conversa">
+          <input type="text" placeholder="Pesquisa ou começar uma nova conversa" name="input" [(ngModel)]="searchInput" (keyup.enter)="search()">
         </form>
       </div>
       <div *ngIf="archived" (click)="sidebar = true" class="archived">
@@ -32,24 +33,27 @@
           <p>Arquivadas</p>
         </a>
       </div>
-      <div class="contacts">
-        <div class="contact" *ngFor="let info of chats" (click)="getInfos(info)">
-          <img src="../../../assets/profileimage.png" alt="">
-          <div class="infos">
-            <p>{{info.name}}</p>
-            <p>Message</p>
-          </div>
-          <div class="infos2">
-            <p>10:00</p>
-            <button [mat-menu-trigger-for]="chatMenu">
-              <mat-icon>arrow_drop_down</mat-icon>
-            </button>
+      <div [ngClass]="{'body': archived == false, 'bodyWithArchived': archived == true}">
+        <div class="contacts" >
+          <div class="contact" *ngFor="let info of newChat" (click)="getUserInfos(info)" (click)="findId(info.name)">
+            <img src="../../../assets/profileimage.png" alt="">
+            <div class="infos">
+              <p>{{info.name}}</p>
+              <p>message</p>
+            </div>
+            <div class="infos2">
+              <p>10:00</p>
+              <button [mat-menu-trigger-for]="chatMenu">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </button>
+            </div>
           </div>
         </div>
       </div>
   </mat-drawer-content>
 </mat-drawer-container>
 
+<!-- Menus -->
 <div>
   <mat-menu #userMenu="matMenu">
     <button mat-menu-item>Novo grupo</button>
@@ -63,7 +67,7 @@
   <mat-menu #chatMenu="matMenu">
     <button mat-menu-item (click)="archive()">Arquivar conversa</button>
     <button mat-menu-item>Silenciar notificações</button>
-    <button mat-menu-item>Apagar conversa</button>
+    <button mat-menu-item (click)="delete()">Apagar conversa</button>
     <button mat-menu-item>Fixar conversa</button>
     <button mat-menu-item>Marcar como não lida</button>
   </mat-menu>

@@ -9,16 +9,19 @@ import { DbService } from 'src/app/services/db.service';
 export class ArchivedComponent implements OnInit {
 
   @Output() sidebar = new EventEmitter()
+  @Output() chat = new EventEmitter()
 
   chats: any[] = []
-  archived: any
+  archived: Boolean = false
+  id:string = ''
+  selected:any
 
-  constructor(private fire: DbService) {}
+  constructor(private db: DbService) {}
 
   ngOnInit(): void {
     const chat: any = []
 
-    this.fire.readChats().subscribe((infos: any) => {
+    this.db.readChats().subscribe((infos: any) => {
       infos.docs.forEach((doc: any) => {
         chat.push(doc.data())
       })
@@ -48,7 +51,37 @@ export class ArchivedComponent implements OnInit {
   }
 
   unarchive() {
-    this.fire.archiveAndUnarchive({ archived: false })
+    this.db.archiveAndUnarchive({ archived: false }, this.id)
+  }
+
+  findId(name:any) {
+    this.db.readChats().subscribe(infos => {
+
+      const ids:any = infos.docs
+      const names:any = ids.map((infos:any) => { return infos.data().name })
+      const index = names.indexOf(name)
+
+    this.id = ids[index].id
+
+    this.selectedChat()
+    }
+  )}
+
+  getChat(chat:any) {
+    this.selected = chat
+  }
+
+  selectedChat() {
+    const chat = {
+      id: this.id,
+      user: this.selected
+    }
+
+    this.chat.emit(chat)
+  }
+
+  delete() {
+    this.db.deleteChat(this.id)
   }
 
 }

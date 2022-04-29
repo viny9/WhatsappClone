@@ -1,4 +1,3 @@
-import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -7,10 +6,14 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class DbService {
 
-constructor(private db:AngularFirestore, private fire:AngularFireDatabase) { }
+constructor(private db:AngularFirestore) { }
   
  readChats() {
   return this.db.collection('chats').get()
+}
+
+deleteChat(id:any) {
+  return this.db.collection('chats').doc(id).delete()
 }
 
 getProfile() {
@@ -21,17 +24,20 @@ updateProfile(profileInfos:any) {
   return this.db.collection('profile').doc('ByUiN2KRqGV2KOpDDtnz').update(profileInfos)
 }
 
-messages() {
-  return this.db.collection('/chats/MpJznJTm5hoP6aHMePYB/messages').get()
-  
+messages(id:any) {
+  return this.db.collection(`/chats/${id}/messages`).get()
 }
 
-sendMessages(mesaage:any) {
-   return this.db.collection('/chats/MpJznJTm5hoP6aHMePYB/messages').add(mesaage)
+sendMessages(mesaage:any, id:any) {
+   return this.db.collection(`/chats/${id}/messages`).add(mesaage)
  }
 
- archiveAndUnarchive(user:any) {
-  return this.db.collection('/chats').doc('MpJznJTm5hoP6aHMePYB').update(user)
+ deleteMessage(userId:any, id:any) {
+   return this.db.collection(`/chats/${userId}/messages`).doc(id).delete()
+ }
+
+ archiveAndUnarchive(user:any, id:any) {
+  return this.db.collection('/chats').doc(id).update(user)
  }
 
 }

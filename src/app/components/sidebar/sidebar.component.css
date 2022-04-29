@@ -8,11 +8,11 @@ p {
 }
 
 .head {
-    background-color: #ededed;
+    background-color: #f0f2f5;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 10px;
 }
 
 .profile {
@@ -33,16 +33,16 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f6f6f6;
-    padding: 11px;
+    background-color: white;
+    padding: 7px;
     border-bottom: 1px solid #e5e5e6;
 }
 
 .search {
-    width: 90%;
-    height: 40px;
-    background-color: white ;
-    border-radius: 18px; 
+    width: 95%;
+    height: 35px;
+    background-color: #f0f2f5 ;
+    border-radius: 8px; 
     display: flex;
     align-items: center ;
     justify-content: space-around;
@@ -51,6 +51,7 @@ p {
 .search input {
     width: 80%;  
     border: none;
+    background-color: #f0f2f5 ;
 }
 
 input:focus {
@@ -62,12 +63,8 @@ input:focus {
     align-items: center;
     border-bottom: 1px solid #f2f2f2;
     padding: 20px 0 20px 20px;
-    width: 367px;
+    width: 94% ;
     color: black;
-}
-
-.archived:hover {
-    background-color: #d0cfcf62;
 }
 
 .archived a {
@@ -80,13 +77,21 @@ input:focus {
     margin: 0 10px 0 20px;
 }
 
+.body {
+    height: 48.2rem;
+}
+
+.bodyWithArchived {
+    height: 44rem;
+}
+
 .contacts {
     width: 100%;
     overflow-y: scroll;
-    height:748px;
 }
 
 .contacts::-webkit-scrollbar {
+    position: absolute;
     width: 6px;
     background-color: transparent;
 }
@@ -99,22 +104,22 @@ input:focus {
 .contact {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #e9edef;
     height: 70px;
 }
 
 .contact:hover {
-    background-color: #d0cfcf62;
+    background-color: #f0f2f5;
 }
 
 .contact img {
     width: 50px;
     border-radius: 50%;
-    margin: 0 10px 0 20px;
+    padding: 0 15px 0 13px;
 }
 
 .infos > p {
-    width: 250px;
+    width: 320px;
 }
 
 .infos2 {
@@ -122,6 +127,17 @@ input:focus {
     flex-direction: column;
     justify-content: center;
 }
+
+.infos2 button{
+    visibility: hidden;
+}
+
+.contact:hover button > mat-icon {
+    transition:all 0.25s linear,opacity 0.25s linear;
+    transform: translateX(-100);
+    visibility: visible;
+}
+
 
 .component {
     width: 100%;

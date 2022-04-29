@@ -33,7 +33,7 @@ import { ProfileComponent } from './views/profile/profile.component';
     ChatComponent,
     HomeComponent,
     ArchivedComponent,
-    ProfileComponent
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

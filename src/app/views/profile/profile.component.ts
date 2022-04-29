@@ -10,25 +10,28 @@ export class ProfileComponent implements OnInit {
 
   @Output() profile = new EventEmitter()
 
-  name:any
-  bio:any
-  img:any
-  showN:any = true
-  showB:any = true
+  user: any = {}
+  showN: any = true
+  showB: any = true
 
-  constructor(private db:DbService) { }
+  constructor(private db: DbService) {}
 
   ngOnInit(): void {
-    const profileInfos:any = []
     this.db.getProfile().subscribe(infos => {
-      infos.docs.forEach((doc:any) => {
+      const profileInfos: any = []
+
+      infos.docs.forEach((doc: any) => {
         profileInfos.push(doc.data())
-    })
 
-    this.bio = profileInfos[0].bio
-    this.name = profileInfos[0].name
-    this.img = profileInfos[0].img
+        const profile = {
+          name: profileInfos[0].name,
+          bio: profileInfos[0].bio,
+          img: profileInfos[0].img
+        }
+        
+        this.user = profile
 
+      })
     })
   }
 
@@ -37,7 +40,10 @@ export class ProfileComponent implements OnInit {
   }
 
   updateInfos() {
-    this.db.updateProfile({name: this.name, bio: this.bio})
+    this.db.updateProfile({
+      name: this.user.name,
+      bio: this.user.bio
+    })
   }
 
 }

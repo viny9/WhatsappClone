@@ -8,7 +8,7 @@ import { Component  } from '@angular/core';
 export class AppComponent {
   title = 'whatsappClone';
   user:any
- 
+
   recive(infos:any) {
     this.user = infos
   }
